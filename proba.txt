@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+=======
+dsfds
+asdf
+>>>>>>> origin/Kopija
