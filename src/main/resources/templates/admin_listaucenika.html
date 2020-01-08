@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Elektronski Dnevnik - ucenici</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="/style.css"/>
+
+    </head>
+    <body>
+        <header id="header">
+            <div class="header-first">
+            </div>
+            <div class="pic">
+            </div>
+            <div class="header-second">
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <a class="klik" href = "#">Dodaj/izmeni</a> 
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="klik_pregled" href="/admin/noviKorisnik">Novi korisnik</a>
+                        <a class="klik_pregled" href="/admin/noviUcenik">Novi ucenik</a>
+                        <a class="klik_pregled" href="/admin/novoOdeljenje">Novo odeljenje</a>
+                        <a class="klik_pregled" href="/admin/noviPredmet">Novi predmet</a>
+                        <a class="klik_pregled" href=" /admin/noviRaspored">Novi raspored</a>
+                        <a class="klik_pregled" href="/admin/obavestenja">Novo obavestenje</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <a class="klik" href = "#">Pregled</a>
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="klik_pregled" href="/admin/sviKorisnici">Pregled korisnika</a>
+                        <a class="klik_pregled" href="/admin/sviRoditelji">Pregled roditelja</a>
+                        <a class="klik_pregled" href="/admin/sviUcitelji">Pregled ucitelja</a>
+                        <a class="klik_pregled" href="/admin/sviUcenici">Pregled ucenika</a>
+                        <a class="klik_pregled" href="/admin/svaOdeljenja">Pregled odeljenja</a>
+                        <a class="klik_pregled" href="/admin/sviPredmeti">Pregled predmeta</a>
+                        <a class="klik_pregled" href="/admin/listaOdeljenjaZaOdabirRasporeda">Pregled rasporeda</a>
+                        <a class="klik_pregled" href="/admin/listaObavestenja">Pregled obavestenja</a>
+                    </div>
+                </div> 
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <a class="klik" href = "/">Odjava</a>
+                    </div>
+                </div> 
+            </div>
+        </header>
+        <div class="bodi">
+            <div class="pregledi">
+                <div align="center">
+                    <table border="1" cellpadding="10">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ime</th>
+                                <th>Prezime</th>
+                                <th>OdeljenjeID</th>
+                                <th>Naziv Odeljenja</th>
+                                <th>roditeljID</th>
+                                <th>Ime Roditelja</th>
+                                <th>Prezime Roditelja</th>
+                                <th>usluga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="tempUcenici : ${ucenici}">
+                                <td th:text="${tempUcenici.id_ucenik}">ID</td>
+                                <td th:text="${tempUcenici.ime}">Ime</td>
+                                <td th:text="${tempUcenici.prezime}">Prezime</td>
+                                <td th:text="${tempUcenici.odeljenje.id_odeljenje}">OdeljenjeID</td>
+                                <td th:text="${tempUcenici.odeljenje.naziv}">Naziv Odeljenja</td>
+                                <td th:text="${tempUcenici.korisnik.id_korisnik}">roditeljID</td>
+                                <td th:text="${tempUcenici.korisnik.ime}">Ime Roditelja</td>
+                                <td th:text="${tempUcenici.korisnik.prezime}">Prezime Roditelja</td>
+
+                                <td class="usluga">
+                                    <a th:href="@{'/admin/editUcenik/' + ${tempUcenici.id_ucenik}}">Izmeni</a>
+                                    <a th:href="@{'/admin/deleteUcenik/' + ${tempUcenici.id_ucenik}}">Obrisi</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+            <div class="pic">
+            </div>
+            <div class="footer1">
+            <div class="footer1left"> </div>
+            <div class="footer1right">
+            <p style="text-align: center; font-size: 14px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">
+                email:<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">peraperic.os@gmail.com</a>
+            </p>
+            <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 200 100</p>
+            <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 201 101</p>
+                
+            </div>
+            </div>
+            <div class="footer2"> </div>
+            <div class="pic" style="float: right">
+            </div>
+        </footer>
+    </body>
+</html>

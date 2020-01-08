@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <meta charset="ISO-8859-1"/>
+        <link rel="stylesheet" type="text/css" href="/style.css"/>
+        <title>Statistika</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header id="header">
+            <div class="header-first">
+            </div>
+            <div class="pic">
+            </div>
+            <div class="header-second">
+                <a class="klik" href="/direktor/statistika">Statistika</a>
+                <a class="klik" href="/direktor/statistika2">Statistika2</a>
+                <a class="klik" href = "/">Logout</a>
+            </div>
+        </header>
+        <div class="bodi">
+            <h2 align="center"></h2>
+
+            <div id="container" style="width: 1500px; height: 700px; margin: 0 auto"></div>
+            <script th:inline="javascript">
+                $(function(){
+                Highcharts.chart('container', {
+                chart: {
+                type: 'column'
+                },
+                        title: {
+                        text: 'Statistika uspesnosti odeljenja po predmetima'
+                        },
+                        subtitle: {
+                        text: ''
+                        },
+                        xAxis: {
+                        categories: [[${surveyMap.keySet()}]],
+                                crosshair: true
+                        },
+                        yAxis: {
+                        min: 0,
+                                max:5,
+                                title: {
+                                text: 'Prosecna ocena'
+                                }
+                        },
+                        tooltip: {
+                        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f} K</b></td></tr>',
+                                footerFormat: '</table>',
+                                shared: true,
+                                useHTML: true
+                        },
+                        plotOptions: {
+                        column: {
+                        pointPadding: 0.2,
+                                borderWidth: 0
+                        }
+                        },
+                        series: [{
+                        name: 'Predmeti',
+                                data: [[${surveyMap.values()}]]
+                        }]
+                });
+                });
+            </script>
+        </div>
+        <footer id="footer">
+            <div class="pic">
+            </div>
+            <div class="footer1">
+                <div class="footer1left"> </div>
+                <div class="footer1right">
+                    <p style="text-align: center; font-size: 14px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">
+                        email:<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">peraperic.os@gmail.com</a>
+                    </p>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 200 100</p>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 201 101</p>
+
+                </div>
+            </div>
+            <div class="footer2"> </div>
+            <div class="pic" style="float: right">
+            </div>
+        </footer>
+    </body>
+</html>

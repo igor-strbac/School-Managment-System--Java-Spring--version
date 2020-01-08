@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ISO-8859-1"/>
+        <title>Elektronski Dnevnik - otvorena vrata</title>
+        <link rel="stylesheet" type="text/css" href="/style.css"/>
+    </head>
+    <body>
+        <header id="header">
+            <div class="header-first">
+            </div>
+            <div class="pic">
+            </div>
+            <div class="header-second">
+                <a class="klik" href="/ucitelj/listaUcenikaZaOdabirOcena">Dnevnik</a>
+                <a class="klik" href="/ucitelj/listaPoruka">Poruke</a>
+                <a class="klik" href="/ucitelj/rasporedZaOdeljenje">raspored</a>
+                <a class="klik" href="/ucitelj/listaZakazivanja">Lista</a>
+                <a class="klik" href="/">Odjava</a>
+            </div>
+        </header>
+        <div class="bodi">
+            <div align="center">
+                <form action="#" th:action="@{/sendUciteljZakazivanje}" th:object="${otvorenaVrata}"
+                      method="post">
+
+                    <table border="0" cellpadding="10">
+                        <tr>
+                            <td>Odgovor:</td>
+                            <td><input type="text" th:field="*{odgovor}" /></td>
+                            <td>Datum i vreme:</td>
+                            <td><input type="datetime" placeholder="yyyy-MM-dd HH:mm:ss" th:field="*{vreme}" /></td>
+                            <td>Ucitelj:</td>
+                            <td>
+                                <select th:field="*{ucitelj}">
+
+                                    <option th:each="tempUcitelj : ${ucitelj}"
+                                            th:value="${tempUcitelj.id_korisnik}"
+                                            th:utext="${tempUcitelj.ime}+ ' ' + ${tempUcitelj.prezime} "/>
+                                </select>
+                            </td>
+                             <td>Roditelj:</td>
+                            <td>
+                                <select th:field="*{roditelj}">
+
+                                    <option th:each="tempRoditelj : ${roditelj}"
+                                            th:value="${tempRoditelj.id_korisnik}"
+                                            th:utext="${tempRoditelj.ime}+ ' ' + ${tempRoditelj.prezime} "/>
+                                </select>
+                            </td>                         
+                        <tr>
+                            <td colspan="2"><button type="submit">Posalji</button> </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <footer id="footer">
+            <div class="pic">
+            </div>
+            <div class="footer1">
+                <div class="footer1left"> </div>
+                <div class="footer1right">
+                    <p style="text-align: center; font-size: 14px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">
+                        email:<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">peraperic.os@gmail.com</a>
+                    </p>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 200 100</p>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 201 101</p>
+
+                </div>
+            </div>
+            <div class="footer2"> </div>
+            <div class="pic" style="float: right">
+            </div>
+        </footer>
+    </body>
+</html>

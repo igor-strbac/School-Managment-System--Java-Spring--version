@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Elektronski Dnevnik OS "Pera Peric"</title>
+        <meta charset="utf-8"/>
+        <link type="text/css" rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <header id="header">
+            <div class="header-first">
+            </div>
+            <div class="pic">
+            </div>
+            <div class="header-second">
+            </div>
+        </header>
+        <div class="bodi" align="center" >
+            <h2>Elektronski dnevnik OS "Pera Peric"</h2>
+            <form th:action="@{/login}" method="POST" onSubmit = "return checkPassword();" style="font-size: 18px; padding: 10px;">
+                <input type="text" th:placeholder="korisnicko_ime" id="username" name="username" style="font-size: 14px; margin: 5px; padding: 15px; width: 300px;"required/> <br/> 
+                <input type="password"  th:placeholder="lozinka" id="password" name="password" style="font-size: 14px; margin: 5px; padding: 15px; width: 300px;"required/> <br /> 
+                <div th:if="${param.error}">
+                    <p>Korisnicko ime ili lozinka nisu ispravni!<br/> Pokusajte ponovo</p>
+                </div>
+                <script>
+                    function checkPassword(form) {
+                        lozinka = form.lozinka.value;
+                        lozinka2 = form.lozinka2.value;
+                        // If password not entered 
+                        if (lozinka == '')
+                            alert("Molimo vas unesite lozinku");
+                        else if (lozinka2 == '')
+                            alert("Ponovite lozinku");
+                        else if (lozinka != lozinka2) {
+
+                            alert("\nLozinke se ne podudaraju!")
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                </script>
+                <button name="prijava" value="Login" type="Submit" th:text="prijava"></button>
+            </form>
+        </div>
+        <footer id="footer">
+        </footer>
+    </body>
+</html>
+

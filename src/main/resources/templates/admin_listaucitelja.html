@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Elektronski Dnevnik - ucitelji</title>
+        <link rel="stylesheet" type="text/css" href="/style.css"/>
+    </head>
+    <body>
+        <header id="header">
+            <div class="header-first">
+            </div>
+            <div class="pic">
+            </div>
+            <div class="header-second">
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <a class="klik" href = "#">Dodaj/izmeni</a> 
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="klik_pregled" href="/admin/noviKorisnik">Novi korisnik</a>
+                        <a class="klik_pregled" href="/admin/noviUcenik">Novi ucenik</a>
+                        <a class="klik_pregled" href="/admin/novoOdeljenje">Novo odeljenje</a>
+                        <a class="klik_pregled" href="/admin/noviPredmet">Novi predmet</a>
+                        <a class="klik_pregled" href=" /admin/noviRaspored">Novi raspored</a>
+                        <a class="klik_pregled" href="/admin/obavestenja">Novo obavestenje</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <a class="klik" href = "#">Pregled</a>
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="klik_pregled" href="/admin/sviKorisnici">Pregled korisnika</a>
+                        <a class="klik_pregled" href="/admin/sviRoditelji">Pregled roditelja</a>
+                        <a class="klik_pregled" href="/admin/sviUcitelji">Pregled ucitelja</a>
+                        <a class="klik_pregled" href="/admin/sviUcenici">Pregled ucenika</a>
+                        <a class="klik_pregled" href="/admin/svaOdeljenja">Pregled odeljenja</a>
+                        <a class="klik_pregled" href="/admin/sviPredmeti">Pregled predmeta</a>
+                        <a class="klik_pregled" href="/admin/listaOdeljenjaZaOdabirRasporeda">Pregled rasporeda</a>
+                        <a class="klik_pregled" href="/admin/listaObavestenja">Pregled obavestenja</a>
+                    </div>
+                </div> 
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <a class="klik" href = "/">Odjava</a>
+                    </div>
+                </div> 
+            </div>
+        </header>
+        <div class="bodi">
+            <div class="pregledi">
+                <div align="center">
+                    <table border="1" cellpadding="10">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ime</th>
+                                <th>Prezime</th>
+                                <th>Korisnicko ime</th>
+                                <th>Adresa</th>
+                                <th>Telefon</th>
+                                <th>EMail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="tempKorisnici : ${ucitelji}">
+                                <td th:text="${tempKorisnici.id_korisnik}">ID</td>
+                                <td th:text="${tempKorisnici.ime}">Ime</td>
+                                <td th:text="${tempKorisnici.prezime}">Prezime</td>
+                                <td th:text="${tempKorisnici.username}">Korisnicko ime</td>
+                                <td th:text="${tempKorisnici.adresa}">Adresa</td>
+                                <td th:text="${tempKorisnici.telefon}">Telefon</td>
+                                <td th:text="${tempKorisnici.email}">EMail</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+            <div class="pic">
+            </div>
+            <div class="footer1">
+            <div class="footer1left"> </div>
+            <div class="footer1right">
+            <p style="text-align: center; font-size: 14px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">
+                email:<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">peraperic.os@gmail.com</a>
+            </p>
+            <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 200 100</p>
+            <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 201 101</p>
+                
+            </div>
+            </div>
+            <div class="footer2"> </div>
+            <div class="pic" style="float: right">
+            </div>
+        </footer>
+    </body>
+</html>

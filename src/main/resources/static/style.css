@@ -1,0 +1,211 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Archivo Narrow', Tahoma, sans-serif;
+    font-weight: 200;
+    background-color: whitesmoke;
+    width:100%;
+}
+#header{
+    height: 220px;
+    background-color: white;
+    width: 100%;
+}
+.header-first{
+    background-position: bottom;
+    height: 125px;
+    background-image: url('/skola.jpg');
+    background-size: contain;
+    background-repeat: repeat-x;
+    width: 100%;
+    margin: 0px auto;
+}
+.pic{
+    background-image: url('/sr.png');
+    width: 100%;
+    height: 17px;
+    background-repeat: repeat-x;
+}
+.header-second{
+    height: 50px;
+    background-color: buttonhighlight;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    margin: 0px auto;
+}
+a.klik, .dropdown {
+    text-decoration: none;
+    background-color: buttonshadow;
+    color: white;
+    border: 2px solid transparent;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px 3% 5px 3%;
+    text-align: center;
+    margin-left: 3%;
+    margin-right:3%;
+}
+a.klik{
+
+}
+a.klik:link {
+    color: white;
+    text-decoration: none;}
+a.klik:visited {
+    color: white;}
+a.klik:hover {
+    color: black;
+    text-decoration: none;}
+
+.klik_pregled:link{
+    color: black;}
+.klik_pregled:visited{
+    color: black;}
+.klik_pregled{
+    text-align: center;}
+.klik_pregled:hover{
+    background-color: buttonshadow;}
+
+
+.dropdown {
+    float: left;
+    margin-left:15%;
+    overflow: hidden;
+}
+.dropbtn {
+    color: white;
+    text-align: center;
+}
+.clearfix {
+    overflow: auto;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 220px;
+    z-index: 0;
+    margin-top: 8px;
+    margin-left:-60px;
+    overflow: hidden;
+}
+input{
+    width: 200px;
+    margin: auto;
+    text-align: center;
+}
+
+.dropdown-content a {
+    float: none;
+    padding: 12px 10%;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background-color:buttonhighlight;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+.bodi{
+    background-color: whitesmoke;
+    height:100%;
+    min-height: 300px;
+    width: 100%;
+    margin: 0px auto;
+    padding:50px 0px 200px 0%;
+    text-align: center;
+    overflow:hidden;
+    border-left: buttonshadow solid 1px;
+    border-right: buttonshadow solid 1px;
+}
+#footer{
+    height: 104px;
+    width: 100%;
+    margin: 0px auto;
+    overflow: hidden;
+    background-color: buttonhighlight;
+}
+.footer1{
+    float: left;
+    width: 50%;
+    height: 70px;
+}
+.footer1left{
+    background-image: url('/naziv.jpg');
+    background-size: contain;
+    float: left;
+    height: 70px;
+    width: 230px;
+    background-color: aquamarine;
+}
+.footer1right{
+    height: 70px;
+    width: 300px;
+    float: right;
+    margin: 0px 10px 0px 50px;
+}
+.footer2{
+    background-image: url('/slika.jpg');
+    background-size: contain;
+    float: right;
+    height: 70px;
+    width: 390px;
+    background-color: darkgoldenrod;
+    overflow: hidden;
+}
+
+th:hover{
+    background-color: scrollbar;}
+th{
+    background-color: buttonshadow;}
+tr{
+    background-color: white;
+    height: 10px;
+}
+tr:hover{
+    background-color:#ddd;
+}
+td{
+    height: 10px;
+    width: 10px;
+}
+.pregledi table{
+    border: 1px buttonshadow solid;
+    margin: auto;
+    width: 80%;
+}
+.tabela_pregled table{
+    float: left;
+    width: 140px;
+    height: 10px
+}
+.tabela_pregled{
+    margin: auto;
+    width: 90%;
+    position: static;
+    overflow: hidden;
+}
+
+.tabela_pregled td,th{
+    width:120px;
+    height:20px;
+}
+
+.tabela_unos table{
+    float: inside;
+    width: 50px;
+    height: 10px;
+}
+.tabela_unos{
+    overflow: hidden;
+    position: static;
+    width: 85%;
+    margin: auto;
+}
+.tabela_pregled .t{
+    width: 90px;
+    background-color: buttonshadow;
+}

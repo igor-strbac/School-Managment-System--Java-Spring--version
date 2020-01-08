@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <title>Edit raspored</title>
+        <link rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <header id="header">
+            <div class="header-first">
+            </div>
+            <div class="pic">
+            </div>
+            <div class="header-second">
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <a class="klik" href = "#">Dodaj/izmeni</a> 
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="klik_pregled" href="/admin/noviKorisnik">Novi korisnik</a>
+                        <a class="klik_pregled" href="/admin/noviUcenik">Novi ucenik</a>
+                        <a class="klik_pregled" href="/admin/novoOdeljenje">Novo odeljenje</a>
+                        <a class="klik_pregled" href="/admin/noviPredmet">Novi predmet</a>
+                        <a class="klik_pregled" href=" /admin/noviRaspored">Novi raspored</a>
+                        <a class="klik_pregled" href="/admin/obavestenja">Novo obavestenje</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <a class="klik" href = "#">Pregled</a>
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="klik_pregled" href="/admin/sviKorisnici">Pregled korisnika</a>
+                        <a class="klik_pregled" href="/admin/sviRoditelji">Pregled roditelja</a>
+                        <a class="klik_pregled" href="/admin/sviUcitelji">Pregled ucitelja</a>
+                        <a class="klik_pregled" href="/admin/sviUcenici">Pregled ucenika</a>
+                        <a class="klik_pregled" href="/admin/svaOdeljenja">Pregled odeljenja</a>
+                        <a class="klik_pregled" href="/admin/sviPredmeti">Pregled predmeta</a>
+                        <a class="klik_pregled" href="/admin/rasporedZaOdeljenje">Pregled rasporeda</a>
+                        <a class="klik_pregled" href="/admin/listaObavestenja">Pregled obavestenja</a>
+                    </div>
+                </div> 
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <a class="klik" href = "/">Logout</a>
+                    </div>
+                </div> 
+            </div>
+        </header>
+        <div class="bodi">
+            <div align="center">
+                <form action="#" th:action="@{/savePonedeljak}" th:object="${ponedeljak}" 
+                      method="post">
+                    <table border="2" cellpadding="10" style = "float: left"><tbody>
+                            <tr>
+                                <th></th>
+                                <th>Ponedeljak</th>
+                            </tr>
+
+                            <tr>
+                                <td>odeljenje</td>
+                                <td><select th:field="*{odeljenje}">
+
+                                        <option th:each="tempOdeljenje : ${odeljenja}"
+                                                th:value="${tempOdeljenje.id_odeljenje}"
+                                                th:utext="${tempOdeljenje.naziv}"/>
+                                    </select></td>
+                            </tr>
+
+                            <tr>
+                                <td>pretcas</td>
+                                <td><select th:field="*{pretcas}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+
+                            <tr>
+                                <td>prvi</td>
+                                <td> <select th:field="*{prvi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>   
+
+                            <tr>
+                                <td>drugi</td>
+                                <td><select th:field="*{drugi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>     
+
+                            <tr>
+                                <td>treci</td>
+                                <td><select th:field="*{treci}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>      
+
+                            <tr>
+                                <td>cetvrti</td>
+                                <td><select th:field="*{cetvrti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>      
+
+                            <tr>
+                                <td>peti</td>
+                                <td><select th:field="*{peti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>  
+                            <tr>
+                                <td>sesti</td>
+                                <td><select th:field="*{sesti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>sedmi</td>
+                                <td><select th:field="*{sedmi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button type="submit">Save</button> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </form>
+
+
+                <form action="#" th:action="@{/saveUtorak}" th:object="${utorak}" 
+                      method="post">
+                    <table border="2" cellpadding="10" style = "float: left"><tbody>
+                            <tr>
+                                <th></th>
+                                <th>Utorak</th>
+                            </tr>
+                            <tr>
+                                <td>odeljenje</td>
+                                <td><select th:field="*{odeljenje}">
+
+                                        <option th:each="tempOdeljenje : ${odeljenja}"
+                                                th:value="${tempOdeljenje.id_odeljenje}"
+                                                th:utext="${tempOdeljenje.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>pretcas</td>
+                                <td><select th:field="*{pretcas}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+
+                            <tr>
+                                <td>prvi</td>
+                                <td> <select th:field="*{prvi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>   
+
+                            <tr>
+                                <td>drugi</td>
+                                <td><select th:field="*{drugi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>     
+
+                            <tr>
+                                <td>treci</td>
+                                <td><select th:field="*{treci}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>      
+
+                            <tr>
+                                <td>cetvrti</td>
+                                <td><select th:field="*{cetvrti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>      
+
+                            <tr>
+                                <td>peti</td>
+                                <td><select th:field="*{peti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>  
+                            <tr>
+                                <td>sesti</td>
+                                <td><select th:field="*{sesti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>sedmi</td>
+                                <td><select th:field="*{sedmi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button type="submit">Save</button> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </form>
+
+                <form action="#" th:action="@{/saveSreda}" th:object="${sreda}" 
+                      method="post">
+                    <table border="2" cellpadding="10" style = "float: left"><tbody>
+                            <tr>
+                                <th></th>
+                                <th>Sreda</th>
+                            </tr>
+
+                            <tr>
+                                <td>odeljenje</td>
+                                <td><select th:field="*{odeljenje}">
+
+                                        <option th:each="tempOdeljenje : ${odeljenja}"
+                                                th:value="${tempOdeljenje.id_odeljenje}"
+                                                th:utext="${tempOdeljenje.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>pretcas</td>
+                                <td><select th:field="*{pretcas}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+
+                            <tr>
+                                <td>prvi</td>
+                                <td> <select th:field="*{prvi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>   
+
+                            <tr>
+                                <td>drugi</td>
+                                <td><select th:field="*{drugi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>     
+
+                            <tr>
+                                <td>treci</td>
+                                <td><select th:field="*{treci}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>      
+
+                            <tr>
+                                <td>cetvrti</td>
+                                <td><select th:field="*{cetvrti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>      
+
+                            <tr>
+                                <td>peti</td>
+                                <td><select th:field="*{peti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>  
+                            <tr>
+                                <td>sesti</td>
+                                <td><select th:field="*{sesti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>sedmi</td>
+                                <td><select th:field="*{sedmi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button type="submit">Save</button> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </form>
+
+                <form action="#" th:action="@{/saveCetvrtak}" th:object="${cetvrtak}" 
+                      method="post">
+                    <table border="2" cellpadding="10" style = "float: left"><tbody>
+                            <tr>
+                                <th></th>
+                                <th>Cetvrtak</th>
+                            </tr>
+
+
+                            <tr>
+                                <td>odeljenje</td>
+                                <td><select th:field="*{odeljenje}">
+
+                                        <option th:each="tempOdeljenje : ${odeljenja}"
+                                                th:value="${tempOdeljenje.id_odeljenje}"
+                                                th:utext="${tempOdeljenje.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>pretcas</td>
+                                <td><select th:field="*{pretcas}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+
+                            <tr>
+                                <td>prvi</td>
+                                <td> <select th:field="*{prvi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>   
+
+                            <tr>
+                                <td>drugi</td>
+                                <td><select th:field="*{drugi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>     
+
+                            <tr>
+                                <td>treci</td>
+                                <td><select th:field="*{treci}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>      
+
+                            <tr>
+                                <td>cetvrti</td>
+                                <td><select th:field="*{cetvrti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>      
+
+                            <tr>
+                                <td>peti</td>
+                                <td><select th:field="*{peti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>  
+                            <tr>
+                                <td>sesti</td>
+                                <td><select th:field="*{sesti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>sedmi</td>
+                                <td><select th:field="*{sedmi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button type="submit">Save</button> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </form>
+
+                <form action="#" th:action="@{/savePetak}" th:object="${petak}" 
+                      method="post">
+                    <table border="2" cellpadding="10" style = "float: left"><tbody>
+                            <tr>
+                                <th></th>
+                                <th>Petak</th>
+                            </tr>
+
+
+                            <tr>
+                                <td>odeljenje</td>
+                                <td><select th:field="*{odeljenje}">
+
+                                        <option th:each="tempOdeljenje : ${odeljenja}"
+                                                th:value="${tempOdeljenje.id_odeljenje}"
+                                                th:utext="${tempOdeljenje.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>pretcas</td>
+                                <td><select th:field="*{pretcas}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+
+                            <tr>
+                                <td>prvi</td>
+                                <td> <select th:field="*{prvi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>   
+
+                            <tr>
+                                <td>drugi</td>
+                                <td><select th:field="*{drugi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>     
+
+                            <tr>
+                                <td>treci</td>
+                                <td><select th:field="*{treci}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>      
+
+                            <tr>
+                                <td>cetvrti</td>
+                                <td><select th:field="*{cetvrti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>      
+
+                            <tr>
+                                <td>peti</td>
+                                <td><select th:field="*{peti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>  
+                            <tr>
+                                <td>sesti</td>
+                                <td><select th:field="*{sesti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>sedmi</td>
+                                <td><select th:field="*{sedmi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button type="submit">Save</button> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </form>
+
+                <form action="#" th:action="@{/saveSubota}" th:object="${subota}" 
+                      method="post">
+                    <table border="2" cellpadding="10" style = "float: left"><tbody>
+                            <tr>
+                                <th></th>
+                                <th>Subota</th>
+                            </tr>
+
+
+                            <tr>
+                                <td>odeljenje</td>
+                                <td><select th:field="*{odeljenje}">
+
+                                        <option th:each="tempOdeljenje : ${odeljenja}"
+                                                th:value="${tempOdeljenje.id_odeljenje}"
+                                                th:utext="${tempOdeljenje.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>pretcas</td>
+                                <td><select th:field="*{pretcas}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+
+                            <tr>
+                                <td>prvi</td>
+                                <td> <select th:field="*{prvi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>   
+
+                            <tr>
+                                <td>drugi</td>
+                                <td><select th:field="*{drugi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>     
+
+                            <tr>
+                                <td>treci</td>
+                                <td><select th:field="*{treci}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>      
+
+                            <tr>
+                                <td>cetvrti</td>
+                                <td><select th:field="*{cetvrti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>      
+
+                            <tr>
+                                <td>peti</td>
+                                <td><select th:field="*{peti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>  
+                            <tr>
+                                <td>sesti</td>
+                                <td><select th:field="*{sesti}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>sedmi</td>
+                                <td><select th:field="*{sedmi}">
+                                        <option th:value="null" text="Please Select"></option>
+                                        <option th:each="tempPredmet : ${predmeti}"
+                                                th:value="${tempPredmet.naziv}"
+                                                th:utext="${tempPredmet.naziv}"/>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button type="submit">Save</button> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <footer id="footer">
+            <div class="pic">
+            </div>
+            <div class="footer1">
+                <div class="footer1left"> </div>
+                <div class="footer1right">
+                    <p style="text-align: center; font-size: 14px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">
+                        email:<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">peraperic.os@gmail.com</a>
+                    </p>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 200 100</p>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 201 101</p>
+
+                </div>
+            </div>
+            <div class="footer2"> </div>
+            <div class="pic" style="float: right">
+            </div>
+        </footer>
+    </body>
+</html>

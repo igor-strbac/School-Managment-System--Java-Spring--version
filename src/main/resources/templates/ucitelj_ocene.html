@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Elektronski Dnevnik - ocene</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/style.css" />
+    </head>
+    <body>
+        <header id="header">
+            <div class="header-first"></div>
+            <div class="pic"></div>
+            <div class="header-second">
+                <a class="klik" href="/ucitelj/listaUcenikaZaOdabirOcena">Dnevnik</a>
+                <a class="klik" href="/ucitelj/listaPoruka">Poruke</a>
+                <a class="klik" href="/ucitelj/rasporedZaOdeljenje">raspored</a>
+                <a class="klik" href="/ucitelj/listaZakazivanja">Lista</a>
+                <a class="klik"href="/">Odjava</a>
+            </div>
+        </header>
+        <div class="bodi">
+            <div align="center">
+                <form action="#" th:action="@{/saveOcene}" th:object="${ocene}"
+                      method="post">
+                    <table border="1" cellpadding="10">
+                        <tr>
+                            <th>Ucenik</th>
+                            <th>Predmet</th>
+                            <th>Ocena</th>
+                            <th>Datum</th>
+                            <th>Zakljucna ocena</th>
+                        </tr>
+                        <tr>
+                            <td><select th:field="*{ucenici}">
+
+                                    <option th:each="tempUcenici : ${ucenici}"
+                                            th:value="${tempUcenici.id_ucenik}"
+                                            th:utext="${tempUcenici.ime}+ ' '+${tempUcenici.prezime}"
+                                            />
+
+                                </select></td>
+                            <td><select th:field="*{predmet}">
+                                    <option th:each="tempPredmeti : ${predmeti}"
+                                            th:value="${tempPredmeti.id_predmet}"
+                                            th:utext="${tempPredmeti.naziv}" />
+                                </select></td>
+                            <td><input type="text" name="ocena" value="" /></td>
+                            <td><input type="datetime" placeholder="yyyy/mm/dd"
+                                       th:field="*{datum}" /></td>
+                            <td><input type="text" name="zaklj_ocena" value="" /></td>
+                            <td colspan="2"><button type="submit">Sacuvaj</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <footer id="footer">
+            <div class="pic">
+            </div>
+            <div class="footer1">
+                <div class="footer1left"> </div>
+                <div class="footer1right">
+                    <p style="text-align: center; font-size: 14px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">
+                        email:<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">peraperic.os@gmail.com</a>
+                    </p>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 200 100</p>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 201 101</p>
+
+                </div>
+            </div>
+            <div class="footer2"> </div>
+            <div class="pic" style="float: right">
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ISO-8859-1"/>
+        <title>Elektronski Dnevnik - raspored</title>
+        <link rel="stylesheet" type="text/css" href="/style.css"/>
+    </head>
+    <body>
+        <header id="header">
+            <div class="header-first">
+            </div>
+            <div class="pic">
+            </div>
+            <div class="header-second">
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <a class="klik" href = "#">Dodaj/izmeni</a> 
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="klik_pregled" href="/admin/noviKorisnik">Novi korisnik</a>
+                        <a class="klik_pregled" href="/admin/noviUcenik">Novi ucenik</a>
+                        <a class="klik_pregled" href="/admin/novoOdeljenje">Novo odeljenje</a>
+                        <a class="klik_pregled" href="/admin/noviPredmet">Novi predmet</a>
+                        <a class="klik_pregled" href=" /admin/noviRaspored">Novi raspored</a>
+                        <a class="klik_pregled" href="/admin/obavestenja">Novo obavestenje</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <a class="klik" href = "#">Pregled</a>
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="klik_pregled" href="/admin/sviKorisnici">Pregled korisnika</a>
+                        <a class="klik_pregled" href="/admin/sviRoditelji">Pregled roditelja</a>
+                        <a class="klik_pregled" href="/admin/sviUcitelji">Pregled ucitelja</a>
+                        <a class="klik_pregled" href="/admin/sviUcenici">Pregled ucenika</a>
+                        <a class="klik_pregled" href="/admin/svaOdeljenja">Pregled odeljenja</a>
+                        <a class="klik_pregled" href="/admin/sviPredmeti">Pregled predmeta</a>
+                        <a class="klik_pregled" href="/admin/listaOdeljenjaZaOdabirRasporeda">Pregled rasporeda</a>
+                        <a class="klik_pregled" href="/admin/listaObavestenja">Pregled obavestenja</a>
+                    </div>
+                </div> 
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <a class="klik" href = "/">Odjava</a>
+                    </div>
+                </div> 
+            </div>
+        </header>
+        <div class="bodi">
+            <div class="tabela_pregled" style="padding-left: 20%;">
+                <table class="t" border="2">
+                    <tbody>
+                        <tr><th></th></tr>
+                        <tr> <td>pretcas</td></tr>
+                        <tr> <td>1</td></tr>
+                        <tr> <td>2</td></tr>
+                        <tr> <td>3</td></tr>
+                        <tr> <td>4</td></tr>
+                        <tr> <td>5</td></tr>
+                        <tr> <td>6</td></tr>
+                        <tr> <td>7</td></tr>
+                        <tr> <td>izmeni</td></tr>
+                    </tbody>
+                </table>
+                <table border="2"><tbody>
+                        <tr>
+                            <th>Ponedeljak</th>
+                        </tr>
+                        <tr th:each="tempOdeljenja : ${ponedeljak}">
+
+                            <td th:text="${tempOdeljenja.pretcas}">pretcas</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja : ${ponedeljak}">
+                            <td th:text="${tempOdeljenja.prvi}">prvi</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja : ${ponedeljak}">
+                            <td th:text="${tempOdeljenja.drugi}">drugi</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja : ${ponedeljak}">
+                            <td th:text="${tempOdeljenja.treci}">treci</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja : ${ponedeljak}">
+                            <td th:text="${tempOdeljenja.cetvrti}"></td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja : ${ponedeljak}">
+                            <td th:text="${tempOdeljenja.peti}"></td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja : ${ponedeljak}">
+                            <td th:text="${tempOdeljenja.sesti}"></td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja : ${ponedeljak}">
+                            <td th:text="${tempOdeljenja.sedmi}"></td>
+                        </tr>
+                        <tr th:each="tempOdeljenja : ${ponedeljak}">
+                            <td><a th:href="@{'/admin/deletePonedeljak/' + ${tempOdeljenja.id}}">Obrisi</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+                <table border="2"><tbody>
+                        <tr>
+                            <th>utorak</th>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja2 : ${utorak}">
+                            <td class="tab" th:text="${tempOdeljenja2.pretcas}">pretcas</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja2 : ${utorak}">
+                            <td th:text="${tempOdeljenja2.prvi}">prvi</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja2 : ${utorak}">
+                            <td th:text="${tempOdeljenja2.drugi}">drugi</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja2 : ${utorak}">
+                            <td th:text="${tempOdeljenja2.treci}">treci</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja2 : ${utorak}">
+                            <td th:text="${tempOdeljenja2.cetvrti}">cetvrti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja2 : ${utorak}">
+                            <td th:text="${tempOdeljenja2.peti}">peti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja2 : ${utorak}">
+                            <td th:text="${tempOdeljenja2.sesti}">sesti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja2 : ${utorak}">
+                            <td th:text="${tempOdeljenja2.sedmi}">sedmi</td>
+                        </tr>
+                        <tr th:each="tempOdeljenja : ${utorak}">
+                            <td><a th:href="@{'/admin/deleteUtorak/' + ${tempOdeljenja.id}}">Obrisi</a></td>
+                        </tr>
+                    </tbody></table>
+                <table border="2"><tbody><tr>
+
+                            <th>sreda</th>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja3 : ${sreda}">
+                            <td th:text="${tempOdeljenja3.pretcas}"></td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja3 : ${sreda}">
+                            <td th:text="${tempOdeljenja3.prvi}">prvi</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja3 : ${sreda}">
+                            <td th:text="${tempOdeljenja3.drugi}">drugi</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja3 : ${sreda}">
+                            <td th:text="${tempOdeljenja3.treci}">treci</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja3 : ${sreda}">
+                            <td th:text="${tempOdeljenja3.cetvrti}">cetvrti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja3 : ${sreda}">
+                            <td th:text="${tempOdeljenja3.peti}">peti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja3 : ${sreda}">
+                            <td th:text="${tempOdeljenja3.sesti}">sesti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja3 : ${sreda}">
+                            <td th:text="${tempOdeljenja3.sedmi}">sedmi</td>
+                        </tr>
+                        <tr th:each="tempOdeljenja : ${sreda}">
+                            <td><a th:href="@{'/admin/deleteSreda/' + ${tempOdeljenja.id}}">Obrisi</a></td>
+                        </tr>
+
+                    </tbody></table>
+
+                <table border="2"><tbody><tr>
+
+                            <th>cetvrtak</th>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja4 : ${cetvrtak}">
+                            <td th:text="${tempOdeljenja4.pretcas}"></td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja4 : ${cetvrtak}">
+                            <td th:text="${tempOdeljenja4.prvi}">prvi</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja4 : ${cetvrtak}">
+                            <td th:text="${tempOdeljenja4.drugi}">drugi</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja4 : ${cetvrtak}">
+                            <td th:text="${tempOdeljenja4.treci}">treci</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja4 : ${cetvrtak}">
+                            <td th:text="${tempOdeljenja4.cetvrti}">cetvrti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja4 : ${cetvrtak}">
+                            <td th:text="${tempOdeljenja4.peti}">peti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja4 : ${cetvrtak}">
+                            <td th:text="${tempOdeljenja4.sesti}">sesti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja4 : ${cetvrtak}">
+                            <td th:text="${tempOdeljenja4.sedmi}">sedmi</td>
+                        </tr>
+                        <tr th:each="tempOdeljenja : ${cetvrtak}">
+                            <td><a th:href="@{'/admin/deleteCetvrtak/' + ${tempOdeljenja.id}}">Obrisi</a></td>
+                        </tr>
+
+                    </tbody></table>
+
+
+                <table border="2"><tbody><tr>
+
+                            <th>petak</th>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja5 : ${petak}">
+                            <td th:text="${tempOdeljenja5.pretcas}"></td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja5 : ${petak}">
+                            <td th:text="${tempOdeljenja5.prvi}">prvi</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja5 : ${petak}">
+                            <td th:text="${tempOdeljenja5.drugi}">drugi</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja5 : ${petak}">
+                            <td th:text="${tempOdeljenja5.treci}">treci</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja5 : ${petak}">
+                            <td th:text="${tempOdeljenja5.cetvrti}">cetvrti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja5 : ${petak}">
+                            <td th:text="${tempOdeljenja5.peti}">peti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja5 : ${petak}">
+                            <td th:text="${tempOdeljenja5.sesti}">sesti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja5 : ${petak}">
+                            <td th:text="${tempOdeljenja5.sedmi}">sedmi</td>
+                        </tr>
+                        <tr th:each="tempOdeljenja : ${petak}">
+                            <td><a th:href="@{'/admin/deletePetak/' + ${tempOdeljenja.id}}">Obrisi</a></td>
+                        </tr>
+                    </tbody></table>
+                <table border="2"><tbody><tr>
+                            <th>subota</th>
+                        </tr>
+                        <tr th:each="tempOdeljenja6 : ${subota}">
+                            <td th:text="${tempOdeljenja6.pretcas}"></td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja6 : ${subota}">
+                            <td th:text="${tempOdeljenja6.prvi}">prvi</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja6 : ${subota}">
+                            <td th:text="${tempOdeljenja6.drugi}">drugi</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja6 : ${subota}">
+                            <td th:text="${tempOdeljenja6.treci}">treci</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja6 : ${subota}">
+                            <td th:text="${tempOdeljenja6.cetvrti}">cetvrti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja6 : ${subota}">
+                            <td th:text="${tempOdeljenja6.peti}">peti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja6 : ${subota}">
+                            <td th:text="${tempOdeljenja6.sesti}">sesti</td>
+                        </tr>
+
+                        <tr th:each="tempOdeljenja6 : ${subota}">
+                            <td th:text="${tempOdeljenja6.sedmi}">sedmi</td>
+                        </tr>
+                        <tr th:each="tempOdeljenja : ${subota}">
+                            <td><a th:href="@{'/admin/deleteSubota/' + ${tempOdeljenja.id}}">Obrisi</a></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>  
+        </div>
+        <footer id="footer">
+            <div class="pic">
+            </div>
+            <div class="footer1">
+                <div class="footer1left"> </div>
+                <div class="footer1right">
+                    <p style="text-align: center; font-size: 14px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">
+                        email:<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">peraperic.os@gmail.com</a>
+                    </p>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 200 100</p>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; margin:0px 0px; padding: 3px 0px;">+381 (0)11 201 101</p>
+
+                </div>
+            </div>
+            <div class="footer2"> </div>
+            <div class="pic" style="float: right">
+            </div>
+        </footer>
+    </body>
+</html>
